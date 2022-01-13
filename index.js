@@ -44,13 +44,14 @@ Matter.Events.on(engine,'afterUpdate', function() {
   }
 });
 
+Matter.Engine.run(engine);
+Matter.Render.run(render);
+
 function endLevel() {
     let stack;
     let stack2;
     Matter.World.remove(engine.world, [ball, sling, mouseConstraint]);
     Matter.World.clear(engine.world);
-    Matter.Render.stop(render);
-    Matter.Engine.clear(engine);
   }
 
 function level1() {
@@ -58,8 +59,6 @@ function level1() {
     return Matter.Bodies.polygon(x, y, 8, 30);
   });
   Matter.World.add(engine.world, [stack, ledge, ball, sling, mouseConstraint]);
-  Matter.Engine.run(engine);
-  Matter.Render.run(render);
 }
 
 function level2() {
@@ -67,8 +66,6 @@ function level2() {
     return Matter.Bodies.polygon(x, y, 8, 30);
   });
   Matter.World.add(engine.world, [stack2, ledge2, ball, sling, mouseConstraint]);
-  Matter.Engine.run(engine);
-  Matter.Render.run(render);
 }
 
 function level3(){
@@ -79,8 +76,6 @@ function level3(){
     return Matter.Bodies.polygon(x, y, 8, 30);
   });
   Matter.World.add(engine.world, [stack, stack2, ledge, ledge2, ball, sling, mouseConstraint]);
-  Matter.Engine.run(engine);
-  Matter.Render.run(render);
 }
 
 
